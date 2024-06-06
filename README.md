@@ -1,30 +1,39 @@
-# React + TypeScript + Vite
+# React + TypeScript + Vite Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## Prerequisites
 
--  [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
--  [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-  Node.js
+-  npm or yarn
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. Clone the repository: `git clone https://github.com/DamifeZion/zen_movies.git`
+2. Navigate to the project directory: `cd zen_movies`
+3. Install dependencies: `npm install` or `yarn install`
 
--  Configure the top-level `parserOptions` property like this:
+## Running the Application
 
-```js
-export default {
-   // other rules...
-   parserOptions: {
-      ecmaVersion: "latest",
-      sourceType: "module",
-      project: ["./tsconfig.json", "./tsconfig.node.json"],
-      tsconfigRootDir: __dirname,
-   },
-};
-```
+1. Start the development server: `npm run dev` or `yarn dev`
+2. Open your browser and visit `http://localhost:5173`
 
--  Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
--  Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
--  Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Building the Application
+
+Run `npm run build` or `yarn build`. The build files will be in the `dist` directory.
+
+## Testing the Application
+
+Run `npm test` or `yarn test` to execute the test cases.
+
+## ESLint Configuration
+
+This project uses ESLint for linting. The configuration can be found in `.eslintrc.js`.
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## License
+
+MIT
