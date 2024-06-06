@@ -7,7 +7,7 @@ import { GenreMovies } from "./pages/GenreMovies";
 import SearchResult from "./pages/SearchResults";
 import NotFound from "./pages/NotFound";
 import Footer from "./components/shared/Footer";
-import MovieDetail from "./pages/MovieDetail";
+import MovieDetail from "./pages/MovieDetailf";
 
 function App() {
    return (
