@@ -4,10 +4,10 @@ import Home from "./pages/Home";
 import Favourites from "./pages/Favourites";
 import { routeConstants } from "./constants/routeConst";
 import { GenreMovies } from "./pages/GenreMovies";
-import MovieDetail from "./pages/MovieDetail";
 import SearchResult from "./pages/SearchResults";
 import NotFound from "./pages/NotFound";
 import Footer from "./components/shared/Footer";
+import MovieDetail from "./pages/MovieDetail";
 
 function App() {
    return (
