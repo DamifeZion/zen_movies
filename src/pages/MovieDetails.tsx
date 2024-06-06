@@ -170,7 +170,7 @@ const MovieDetails = () => {
                         {movieDetail.homepage && (
                            <a href={movieDetail.homepage} target="_blank">
                               <Button variant="secondary" >
-                                 View on Netflix
+                                 View Homepage
                               </Button>
                            </a>
                         )}
