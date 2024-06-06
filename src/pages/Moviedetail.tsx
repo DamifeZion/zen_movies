@@ -151,85 +151,94 @@ const MovieDetail = () => {
                         {movieDetail.overview ? movieDetail.overview : "N/A"}
                      </p>
 
-                     <Button
-                        variant={isBookmarked ? "destructive" : 'default'}
-                        onClick={() => dispatch(setFavourites({
-                           movieId: Number(movieDetail.id),
-                           title: String(movieDetail.title),
-                           genre_ids: movieDetail.genres ? movieDetail.genres?.map((genre: MovieGenreType) => genre.id) : [],
-                           image: String(movieDetail.poster_path),
-                           rating: Number(movieDetail.vote_average),
-                           release_date: String(movieDetail.release_date)
-                        }))}
-                        className="mt-8"
-                     >
-                        {isBookmarked ? "Remove favourite" : "Add favourite"}</Button>
+                     <div className="mt-8 flex items-center flex-wrap gap-x-4 gap-y-2">
+                        <Button
+                           variant={isBookmarked ? "destructive" : 'default'}
+                           onClick={() => dispatch(setFavourites({
+                              movieId: Number(movieDetail.id),
+                              title: String(movieDetail.title),
+                              genre_ids: movieDetail.genres ? movieDetail.genres?.map((genre: MovieGenreType) => genre.id) : [],
+                              image: String(movieDetail.poster_path),
+                              rating: Number(movieDetail.vote_average),
+                              release_date: String(movieDetail.release_date)
+                           }))}
+                        >
+                           {isBookmarked ? "Remove favourite" : "Add favourite"}
+                        </Button>
+
+
+                        <a href={movieDetail.homepage} target="_blank">
+                           <Button variant="secondary" >
+                              View on Netflix
+                           </Button>
+                        </a>
+                     </div>
                   </div>
                </div>
             </div>
          </div>
 
          <div className="container my-6">
-            <GenreChips />
-         </div>
+                           <GenreChips />
+                     </div>
 
-         {recommendations.total_pages > 0 && (
-            <div className="container mt-10">
-               <div className="flex gap-3 items-center justify-between py-2">
-                  <h1 className="text-2xl font-semibold ">Recommendations</h1>
+                     {recommendations.total_pages > 0 && (
+                        <div className="container mt-10">
+                           <div className="flex gap-3 items-center justify-between py-2">
+                              <h1 className="text-2xl font-semibold ">Recommendations</h1>
 
-                  <div>
-                     {recommendationPage !== 1 && (
-                        <Button
-                           variant="link"
-                           onClick={goToPreviousRecommendationsPage}
-                        >
-                           Prev
-                        </Button>
-                     )}
+                              <div>
+                                 {recommendationPage !== 1 && (
+                                    <Button
+                                       variant="link"
+                                       onClick={goToPreviousRecommendationsPage}
+                                    >
+                                       Prev
+                                    </Button>
+                                 )}
 
-                     {recommendationPage !== recommendations.total_pages && (
-                        <Button
-                           variant="link"
-                           onClick={goToNextRecommendationsPage}
-                        >
-                           See more
-                        </Button>
+                                 {recommendationPage !== recommendations.total_pages && (
+                                    <Button
+                                       variant="link"
+                                       onClick={goToNextRecommendationsPage}
+                                    >
+                                       See more
+                                    </Button>
+                                 )}
+                              </div>
+                           </div>
+
+                           <Carousel
+                              setApi={setApi}
+                              plugins={[Autoplay({ delay: 5000 })]}
+                              className="mx-auto"
+                           >
+                              <CarouselPrevious className="max-2xl:-left-4 z-10" />
+
+                              <CarouselContent className="py-4 px-0">
+                                 {recommendations.results.map((movie: MovieApiData) => (
+                                    <CarouselItem
+                                       key={movie.id}
+                                       className="basis-2/3 min-[400px]:basis-2/4 min-[550px]:basis-1/3 md:basis-1/4 lg:basis-1/5"
+                                    >
+                                       <MovieCard
+                                          movieId={movie.id}
+                                          rating={movie.vote_average}
+                                          title={movie.title}
+                                          image={movie.poster_path}
+                                          genre_ids={movie.genre_ids}
+                                          release_date={movie.release_date}
+                                       />
+                                    </CarouselItem>
+                                 ))}
+                              </CarouselContent>
+
+                              <CarouselNext className="max-2xl:-right-4 z-10" />
+                           </Carousel>
+                        </div>
                      )}
                   </div>
-               </div>
-
-               <Carousel
-                  setApi={setApi}
-                  plugins={[Autoplay({ delay: 5000 })]}
-                  className="mx-auto"
-               >
-                  <CarouselPrevious className="max-2xl:-left-4 z-10" />
-
-                  <CarouselContent className="py-4 px-0">
-                     {recommendations.results.map((movie: MovieApiData) => (
-                        <CarouselItem
-                           key={movie.id}
-                           className="basis-2/3 min-[400px]:basis-2/4 min-[550px]:basis-1/3 md:basis-1/4 lg:basis-1/5"
-                        >
-                           <MovieCard
-                              movieId={movie.id}
-                              rating={movie.vote_average}
-                              title={movie.title}
-                              image={movie.poster_path}
-                              genre_ids={movie.genre_ids}
-                              release_date={movie.release_date}
-                           />
-                        </CarouselItem>
-                     ))}
-                  </CarouselContent>
-
-                  <CarouselNext className="max-2xl:-right-4 z-10" />
-               </Carousel>
-            </div>
-         )}
-      </div>
-   );
+                  );
 };
 
-export default MovieDetail;
+                  export default MovieDetail;

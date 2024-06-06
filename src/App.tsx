@@ -4,7 +4,7 @@ import Home from "./pages/Home";
 import Favourites from "./pages/Favourites";
 import { routeConstants } from "./constants/routeConst";
 import { GenreMovies } from "./pages/GenreMovies";
-import MovieDetail from "./pages/Moviedetail";
+import MovieDetail from "./pages/MovieDetail";
 import SearchResult from "./pages/SearchResults";
 import NotFound from "./pages/NotFound";
 import Footer from "./components/shared/Footer";
@@ -48,7 +48,7 @@ function App() {
                />
             </Routes>
 
-            <div>
+            <div className="mt-auto">
                <Footer />
             </div>
          </Router>
