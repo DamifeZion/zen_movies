@@ -7,7 +7,7 @@ import { GenreMovies } from "./pages/GenreMovies";
 import SearchResult from "./pages/SearchResults";
 import NotFound from "./pages/NotFound";
 import Footer from "./components/shared/Footer";
-import MovieDetail from "./pages/MovieDetail";
+import MovieDetails from "./pages/MovieDetails";
 
 function App() {
    return (
@@ -34,7 +34,7 @@ function App() {
 
                <Route
                   path={routeConstants.movieDetails}
-                  element={<MovieDetail />}
+                  element={<MovieDetails />}
                />
 
                <Route

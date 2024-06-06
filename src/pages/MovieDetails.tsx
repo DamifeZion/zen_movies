@@ -21,7 +21,7 @@ import { useSearchParams } from "react-router-dom";
 import { setFavourites } from "@/services/slices/movies-slice";
 import { GenreChips } from "@/components/shared/genres/GenreChips";
 
-const MovieDetail = () => {
+const MovieDetails = () => {
    useGetMovieDetailsAndRecommendations();
 
    const dispatch = useDispatch()
@@ -243,4 +243,4 @@ const MovieDetail = () => {
    );
 };
 
-export default MovieDetail;
+export default MovieDetails;
