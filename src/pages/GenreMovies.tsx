@@ -1,3 +1,4 @@
+import { NoResult } from "@/components/shared/NoResult";
 import { DynamicPagination } from "@/components/shared/dynamic-pagination";
 import { GenreChips } from "@/components/shared/genres/GenreChips";
 import { LoadingMovieCardGrid } from "@/components/shared/movie-card/LoadingMovieCard";
@@ -30,6 +31,8 @@ export const GenreMovies = () => {
       .map((gen) => gen.id);
 
    if (isLoading) return <LoadingMovieCardGrid />;
+
+   if (!movies.results.length) return <NoResult />
 
    return (
       <div className="container py-6 sm:py-8">
